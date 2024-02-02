@@ -1,5 +1,4 @@
 import logo from './platzi.webp';
-import React from 'react';
 import './App.css';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -9,7 +8,7 @@ import { CreateTodoButton } from './CreateTodoButton';
 
 /* como renderizar varios elementos con array*/
 const defaultTodos = [
-  { text: 'Cortar cebollas',completed: false },
+  { text: 'Cortar cebollas',completed: true },
   { text: 'Tomar el curso de React',completed: false },
   { text: 'Revisar cuaderno de pendientes',completed: false },
   { text: 'Comprar libro a Mariana',completed: false },
@@ -17,7 +16,7 @@ const defaultTodos = [
 
 function App() {
   return (
-    <React.Fragment>
+    <>
 
       <TodoCounter completed={16} total={25} />
       <TodoSearch />
@@ -34,7 +33,7 @@ function App() {
 
       <CreateTodoButton />
 
-    </React.Fragment>
+    </>
   );
 }
 
