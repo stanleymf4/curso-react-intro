@@ -5,6 +5,7 @@ import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import React from 'react';
 
 /* como renderizar varios elementos con array*/
 const defaultTodos = [
@@ -15,14 +16,38 @@ const defaultTodos = [
 ]
 
 function App() {
+  
+  const [todos, setTodos] = React.useState(defaultTodos);
+  
+  const [seacrhValue, setSeacrhValue] = React.useState(
+    ''
+  );
+
+  const completedTodos = todos.filter(
+    todos => !!todos.completed
+  ).length;
+
+  const totalTodos = todos.length;
+
+  const seachedTodos = todos.filter(
+    (todo) => {
+      return todo.text.toLowerCase().includes(
+        seacrhValue.toLowerCase()
+      )
+    }
+  )
+  
   return (
     <>
 
-      <TodoCounter completed={16} total={25} />
-      <TodoSearch />
+      <TodoCounter completed={completedTodos} total={totalTodos} />
+      <TodoSearch 
+        seacrhValue = {seacrhValue}
+        setSeacrhValue = {setSeacrhValue}
+      />
 
       <TodoList>
-        {defaultTodos.map(todo => (
+        {seachedTodos.map(todo => (
           <TodoItem 
             key={todo.text} 
             text={todo.text}

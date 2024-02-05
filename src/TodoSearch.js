@@ -1,15 +1,19 @@
+import React, { useState } from 'react'
 import './TodoSearch.css'
 
-function TodoSearch() {
-    return (
+function TodoSearch({
+  seacrhValue,
+  setSeacrhValue
+}) {
+  
+  return (
       <input 
         placeholder="Cortar cebolla" 
         className='TodoSearch'
+        value={seacrhValue}
         onChange={
           (event) => {
-            console.log('Escribistes en el TodoSearch')
-            console.log(event)
-            console.log(event.target)
+            setSeacrhValue(event.target.value)
           }
         }
       />
