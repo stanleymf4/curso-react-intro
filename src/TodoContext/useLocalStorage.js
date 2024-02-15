@@ -44,3 +44,14 @@ function useLocalStorage(itemName, initialValue) {
   }
 
 export { useLocalStorage };
+
+
+/* como renderizar varios elementos con array*//* 
+const defaultTodos = [
+  { text: 'Cortar cebollas',completed: true },
+  { text: 'Tomar el curso de React',completed: false },
+  { text: 'Revisar cuaderno de pendientes',completed: false },
+  { text: 'Comprar libro a Mariana',completed: false },
+]
+
+localStorage.setItem('TODOS_V1',JSON.stringify(defaultTodos)) */

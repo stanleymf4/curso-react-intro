@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import './TodoSearch.css'
+import { TodoContext } from '../TodoContext';
 
-function TodoSearch({
-  seacrhValue,
-  setSeacrhValue
-}) {
+function TodoSearch() {
+  
+  const {
+    seacrhValue,
+    setSeacrhValue,
+  } = React.useContext(TodoContext);
   
   return (
       <input 
